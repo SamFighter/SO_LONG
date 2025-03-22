@@ -1,11 +1,14 @@
-/*
- * Filename: /nfs/homes/ygaiffie/Documents/solong_salabbe/include/mlx_engine.h
- * Path: /nfs/homes/ygaiffie/Documents/solong_salabbe/include
- * Created Date: Thursday, January 1st 1970, 1:00:00 am
- * Author: Yohann Gaiffier
- * 
- * Copyright (c) 2025 Your Company
- */
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   mlx_engine.h                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: salabbe <salabbe@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/22 19:29:45 by salabbe           #+#    #+#             */
+/*   Updated: 2025/03/22 19:29:49 by salabbe          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef MLX_ENGINE_H
 # define MLX_ENGINE_H

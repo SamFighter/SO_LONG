@@ -6,7 +6,7 @@
 /*   By: salabbe <salabbe@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 11:36:06 by salabbe           #+#    #+#             */
-/*   Updated: 2025/03/19 14:36:16 by salabbe          ###   ########.fr       */
+/*   Updated: 2025/03/22 19:43:47 by salabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct	s_player
 {
 	int			nb_player;
 	t_vec2i		coords;
+	mlx_image	player;
 }				t_player;
 
 typedef struct	s_exit

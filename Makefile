@@ -6,7 +6,7 @@
 #    By: salabbe <salabbe@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/24 18:41:03 by salabbe           #+#    #+#              #
-#    Updated: 2025/03/19 18:55:15 by salabbe          ###   ########.fr        #
+#    Updated: 2025/03/22 19:36:03 by salabbe          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,21 +29,22 @@ MANDATORY	= 	srcs/main.c								\
 				srcs/map_handler/free_error.c			\
 				srcs/playground/mlx_init.c				\
 				srcs/playground/mlx_engine.c			\
+				srcs/playground/mlx_utils.c				\
 
 N_OBJS		=	$(MANDATORY:%.c=.build/%.o)
 DEPS		=	$(N_OBJS:%.o=%.d)
 
 CC			=	clang
 CFLAGS		=	-Wall -Wextra -Werror -g
-CPPFLAGS	=	-MP	-MMD -Iinclude \
-				-Iinclude/so_long.h \
-				-Ilibft/INCLUDES/libft.h \
-				-Iinclude/structure.h \
-				-Iinclude/lst_line.h \
-				-I/usr/include -Imlx \
-				-Iinclude/lst_collectible.h \
-				-Iinclude/vec2i.h \
-				-Iinclude/mlx_engine.h
+CPPFLAGS	=	-MP	-MMD -Iinclude						\
+				-Iinclude/so_long.h 					\
+				-Ilibft/INCLUDES/libft.h 				\
+				-Iinclude/structure.h 					\
+				-Iinclude/lst_line.h 					\
+				-I/usr/include -Imlx 					\
+				-Iinclude/lst_collectible.h 			\
+				-Iinclude/vec2i.h 						\
+				-Iinclude/mlx_engine.h					\
 
 MLX			=	MacroLibX/libmlx.so
 
