@@ -1,0 +1,52 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   structure.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: salabbe <salabbe@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/05 11:36:06 by salabbe           #+#    #+#             */
+/*   Updated: 2025/03/19 14:36:16 by salabbe          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef STRUCTURE_H
+# define STRUCTURE_H
+
+#include "lst_line.h"
+#include "lst_collectible.h"
+#include "vec2i.h"
+
+typedef struct	s_player
+{
+	int			nb_player;
+	t_vec2i		coords;
+}				t_player;
+
+typedef struct	s_exit
+{
+	int			nb_exit;
+	t_vec2i		coords;
+}				t_exit;
+typedef struct	s_map
+{
+	int			line_width;
+	int 		column_height;
+	int			fd;
+	t_lst_line	*lst_line;
+	char		*path_name;
+	char		**grid;
+	t_player	player;
+	t_exit		exit;
+	t_lst_collectible *collect;
+}				t_map;
+
+typedef struct s_ff_count
+{
+	int		ff_co;
+	int		ff_p;
+	int		ff_e;
+	int		ff_recur;
+}			t_ff_count;
+
+#endif
