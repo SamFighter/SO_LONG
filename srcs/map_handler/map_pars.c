@@ -18,6 +18,8 @@ static void	init_grid(t_map *map)
 	t_lst_line	*tmp;
 
 	len_grid(map);
+	map->info.height = map->column_height * TILE_SIZE;
+	map->info.width = map->line_width * TILE_SIZE;
 	y = 0;
 	tmp = map->lst_line;
 	map->grid = ft_calloc(map->column_height + 1, sizeof(char *));

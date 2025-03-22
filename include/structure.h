@@ -15,6 +15,10 @@
 
 #include "lst_line.h"
 #include "lst_collectible.h"
+#include "mlx_engine.h"
+#include "../MacroLibX/includes/mlx.h"
+#include "../MacroLibX/includes/mlx_extended.h"
+#include "../MacroLibX/includes/mlx_profile.h"
 #include "vec2i.h"
 
 typedef struct	s_player
@@ -30,14 +34,21 @@ typedef struct	s_exit
 }				t_exit;
 typedef struct	s_map
 {
+	mlx_context mlx;
+    mlx_window  win;
+    mlx_window_create_info info;
+	mlx_image   floor;
+	mlx_image   wall;
+
 	int			line_width;
 	int 		column_height;
 	int			fd;
-	t_lst_line	*lst_line;
 	char		*path_name;
 	char		**grid;
 	t_player	player;
 	t_exit		exit;
+
+	t_lst_line	*lst_line;
 	t_lst_collectible *collect;
 }				t_map;
 

@@ -22,12 +22,14 @@
 #include "structure.h"
 #include "lst_line.h"
 #include "lst_collectible.h"
+#include "mlx_engine.h"
 
 #include <fcntl.h>
 #include <stdlib.h>
 
 #define WIDTH_WIN 1920
 #define HEIGHT_WIN 1080
+#define TILE_SIZE 32
 
 ////////////////////////////////FUNCTIONS////////////////////////////////////////
 
@@ -49,5 +51,6 @@ void	free_cpy(char **cpy);
 void	ft_return(t_map *map, char **cpy, char *msg);
 
 void    init_mlx_var(t_map *map);
+void	render_loop(void* param);
 
 #endif

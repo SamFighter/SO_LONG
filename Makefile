@@ -27,16 +27,23 @@ MANDATORY	= 	srcs/main.c								\
 				srcs/map_handler/lst_line.c				\
 				srcs/map_handler/lst_collectible.c		\
 				srcs/map_handler/free_error.c			\
-				srcs/playground/map_init.c				\
+				srcs/playground/mlx_init.c				\
+				srcs/playground/mlx_engine.c			\
 
 N_OBJS		=	$(MANDATORY:%.c=.build/%.o)
 DEPS		=	$(N_OBJS:%.o=%.d)
 
 CC			=	clang
 CFLAGS		=	-Wall -Wextra -Werror -g
-CPPFLAGS	=	-MP	-MMD -Iinclude -Iinclude/so_long.h -Ilibft/INCLUDES/libft.h	\
-				-Iinclude/structure.h -Iinclude/lst_line.h -I/usr/include -Imlx	\
-				-Iinclude/lst_collectible.h -Iinclude/vec2i.h 					\
+CPPFLAGS	=	-MP	-MMD -Iinclude \
+				-Iinclude/so_long.h \
+				-Ilibft/INCLUDES/libft.h \
+				-Iinclude/structure.h \
+				-Iinclude/lst_line.h \
+				-I/usr/include -Imlx \
+				-Iinclude/lst_collectible.h \
+				-Iinclude/vec2i.h \
+				-Iinclude/mlx_engine.h
 
 MLX			=	MacroLibX/libmlx.so
 

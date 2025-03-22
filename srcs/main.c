@@ -43,6 +43,8 @@ static int	check_file_name(char *file_name)
 int	main(int ac, char **av)
 {
 	t_map	map;
+	int		height = 0;
+	int		width= 0;
 
 	if (ac != 2)
 	{
@@ -53,6 +55,14 @@ int	main(int ac, char **av)
 	check_file_name(av[1]);
 	(&map)->path_name = av[1];
 	check_map(&map);
-	// init_mlx_var(&map);
+	init_mlx_var(&map);
+	map.floor = mlx_new_image_from_file(map.mlx, "assets/floor.png",&width, &height);
+	map.wall = mlx_new_image_from_file(map.mlx, "assets/wall.png",&width, &height);
+
+	mlx_on_event(map.mlx, map.win, MLX_WINDOW_EVENT, window_hook, &map);
+	mlx_add_loop_hook(map.mlx, render_loop, &map);
+    mlx_loop(map.mlx);
+
 	free_map(&map);
+	free_engine(&map);
 }
