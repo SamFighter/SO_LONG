@@ -6,7 +6,7 @@
 /*   By: salabbe <salabbe@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 11:36:06 by salabbe           #+#    #+#             */
-/*   Updated: 2025/03/23 11:14:59 by salabbe          ###   ########.fr       */
+/*   Updated: 2025/03/26 16:45:42 by salabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,9 @@ typedef struct	s_player
 typedef struct	s_exit
 {
 	int			nb_exit;
+	mlx_image	d_exit;
 	t_vec2i		coords;
+	bool		winnable;
 }				t_exit;
 typedef struct	s_map
 {
@@ -46,6 +48,7 @@ typedef struct	s_map
 	int			line_width;
 	int 		column_height;
 	int			fd;
+	int			collected;
 	char		*path_name;
 	char		**grid;
 	t_player	player;

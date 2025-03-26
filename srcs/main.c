@@ -6,7 +6,7 @@
 /*   By: salabbe <salabbe@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 14:33:47 by salabbe           #+#    #+#             */
-/*   Updated: 2025/03/23 11:18:42 by salabbe          ###   ########.fr       */
+/*   Updated: 2025/03/26 16:46:40 by salabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,6 @@ static int	check_file_name(char *file_name)
 int	main(int ac, char **av)
 {
 	t_map	map;
-	int		height = 0;
-	int		width = 0;
 
 	if (ac != 2)
 	{
@@ -56,11 +54,14 @@ int	main(int ac, char **av)
 	(&map)->path_name = av[1];
 	check_map(&map);
 	init_mlx_var(&map);
-	map.floor = mlx_new_image_from_file(map.mlx, "assets/floor.png",&width, &height);
-	map.wall = mlx_new_image_from_file(map.mlx, "assets/wall.png",&width, &height);
-	map.player.player = mlx_new_image_from_file(map.mlx, "assets/player.png", &width, &height);
+	map.floor = mlx_new_image_from_file(map.mlx, "assets/floor.png", 0, 0);
+	map.wall = mlx_new_image_from_file(map.mlx, "assets/wall.png", 0, 0);
+	map.player.player = mlx_new_image_from_file(map.mlx, "assets/player.png",  0, 0);
+	map.collect->col = mlx_new_image_from_file(map.mlx, "assets/coin.png",  0, 0);
+	map.exit.d_exit = mlx_new_image_from_file(map.mlx, "assets/exit.png",  0, 0);
 
 	mlx_on_event(map.mlx, map.win, MLX_WINDOW_EVENT, window_hook, &map);
+	mlx_on_event(map.mlx, map.win, MLX_KEYDOWN, key_handler, &map);
 	mlx_add_loop_hook(map.mlx, render_loop, &map);
     mlx_loop(map.mlx);
 

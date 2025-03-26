@@ -6,7 +6,7 @@
 /*   By: salabbe <salabbe@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 19:28:54 by salabbe           #+#    #+#             */
-/*   Updated: 2025/03/23 11:22:27 by salabbe          ###   ########.fr       */
+/*   Updated: 2025/03/26 16:46:28 by salabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,35 +26,19 @@ static void put_grid(t_map *map)
 		{
 			mlx_put_image_to_window(map->mlx, map->win, map->floor, coord.x << 5, coord.y << 5);
 			if (map->grid[coord.y][coord.x] == '1')
-			mlx_put_image_to_window(map->mlx, map->win, map->wall, coord.x << 5, coord.y << 5);
+				mlx_put_image_to_window(map->mlx, map->win, map->wall, coord.x << 5, coord.y << 5);
+			if (map->grid[coord.y][coord.x] == 'C')
+				mlx_put_image_to_window(map->mlx, map->win, map->collect->col, coord.x << 5, coord.y << 5);
 			coord.x++;
 		}
 		coord.y++;
 	}	
 }
 
-static void	put_player(t_map *map)
+static void	put_player(t_map *map, int x, int y)
 {
-	t_vec2i coord;
-	
-	coord = map->player.coords;
-	mlx_put_image_to_window(map->mlx, map->win, map->player.player, coord.x << 5, coord.y << 5);
+	mlx_put_image_to_window(map->mlx, map->win, map->player.player, x << 5, y << 5);
 }
-
-// static void	put_collect(t_map *map)
-// {
-// 	t_vec2i coord;
-// 	t_map	*tmp;
-	
-// 	tmp = map;
-// 	coord = tmp->collect->coord;
-// 	while (tmp->collect)
-// 	{
-// 		tmp->collect->col = mlx_new_image_from_file(map->mlx, "assets/player.png", 0, 0);
-// 		mlx_put_image_to_window(map->mlx, map->win, map->collect->col, coord.x << 5, coord.y << 5);
-// 		tmp->collect = tmp->collect->next;
-// 	}
-// }
 
 void	render_loop(void* param)
 {
@@ -63,6 +47,10 @@ void	render_loop(void* param)
 	map = (t_map*)param;
 	mlx_clear_window(map->mlx, map->win, (mlx_color){ .rgba = 0x00000000 });
 	put_grid(map);
-	put_player(map);
-	// put_collect(map);
+	put_player(map, map->player.coords.x, map->player.coords.y);
+	if (map->collected == lst_count_collect(&map->collect))
+	{
+		map->exit.winnable = 1;
+		mlx_put_image_to_window(map->mlx, map->win, map->exit.d_exit, map->exit.coords.x << 5, map->exit.coords.y << 5);
+	}
 }
