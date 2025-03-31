@@ -6,13 +6,13 @@
 /*   By: salabbe <salabbe@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 17:11:45 by salabbe           #+#    #+#             */
-/*   Updated: 2025/03/22 19:29:26 by salabbe          ###   ########.fr       */
+/*   Updated: 2025/03/31 11:47:03 by salabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/so_long.h"
 
-void file_to_lst_line(t_map *map)
+void	file_to_lst_line(t_map *map)
 {
 	char	*line;
 	size_t	line_len;
@@ -39,9 +39,9 @@ void file_to_lst_line(t_map *map)
 	close(map->fd);
 }
 
-void len_grid(t_map *map)
+void	len_grid(t_map *map)
 {
-	int	linelen;
+	int			linelen;
 	t_lst_line	*tmp;
 
 	file_to_lst_line(map);

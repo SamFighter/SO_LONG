@@ -6,7 +6,7 @@
 /*   By: salabbe <salabbe@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 11:19:51 by salabbe           #+#    #+#             */
-/*   Updated: 2025/03/23 10:39:42 by salabbe          ###   ########.fr       */
+/*   Updated: 2025/03/31 11:46:26 by salabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	init_grid(t_map *map)
 {
-	int y;
+	int			y;
 	t_lst_line	*tmp;
 
 	len_grid(map);
@@ -35,7 +35,7 @@ static void	init_grid(t_map *map)
 
 static int	check_pixel_map(t_map *map, t_vec2i coord)
 {
-	char c;
+	char	c;
 
 	c = map->grid[coord.y][coord.x];
 	if (c == '1' || c == '0')
@@ -43,13 +43,13 @@ static int	check_pixel_map(t_map *map, t_vec2i coord)
 	else if (c == 'E')
 	{
 		map->exit.nb_exit++;
-		map->exit.coords = (t_vec2i){coord.x , coord.y};
+		map->exit.coords = (t_vec2i){coord.x, coord.y};
 		return (1);
 	}
 	else if (c == 'P')
 	{
 		map->player.nb_player++;
-		map->player.coords = (t_vec2i){coord.x , coord.y};
+		map->player.coords = (t_vec2i){coord.x, coord.y};
 		return (1);
 	}
 	else if (c == 'C')
@@ -63,20 +63,20 @@ static int	check_pixel_map(t_map *map, t_vec2i coord)
 
 static void	count_gen_map(t_map *map)
 {
-	t_vec2i coord;
+	t_vec2i	coord;
 
-	coord = (t_vec2i){0 , 0};
+	coord = (t_vec2i){0, 0};
 	while (coord.y < map->column_height)
 	{
 		coord.x = 0;
 		while (map->grid[coord.y][coord.x])
 		{
 			if (check_pixel_map(map, coord) == 0)
-				ft_return(map, NULL, "Wrong map generation, only allowed : 1,0,P,E,C.");
+				ft_return(map, NULL, "Wrong map generation : 1,0,P,E,C.");
 			if (map->exit.nb_exit > 1)
 				ft_return(map, NULL, "Too much exit in map.");
 			if (map->player.nb_player > 1)
-				ft_return(map, NULL, "It's not a multiplayer game, only one player allowed");
+				ft_return(map, NULL, "Only one player allowed");
 			coord.x++;
 		}
 		coord.y++;
@@ -86,6 +86,7 @@ static void	count_gen_map(t_map *map)
 	if (lst_count_collect(&map->collect) == 0 || map->exit.nb_exit == 0)
 		ft_return(map, NULL, "Map can't be finished");
 }
+
 static void	check_borders(t_map *map)
 {
 	int	x;
@@ -117,8 +118,8 @@ static void	check_borders(t_map *map)
 
 void	check_map(t_map *map)
 {
-	char **cpy;
-	t_ff_count ff_count;
+	char		**cpy;
+	t_ff_count	ff_count;
 
 	ft_bzero(&ff_count, sizeof(ff_count));
 	init_grid(map);
@@ -132,5 +133,4 @@ void	check_map(t_map *map)
 	if (check_count(map, &ff_count) == 0)
 		ft_return(map, cpy, "Map not winable");
 	free_cpy(cpy);
-	// free_map(map);
 }

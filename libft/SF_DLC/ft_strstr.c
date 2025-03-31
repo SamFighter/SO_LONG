@@ -6,14 +6,14 @@
 /*   By: salabbe <salabbe@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 19:01:04 by salabbe           #+#    #+#             */
-/*   Updated: 2025/03/05 19:01:08 by salabbe          ###   ########.fr       */
+/*   Updated: 2025/03/31 12:09:31 by salabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char *ft_strstr(char *str, char *to_find)
+char	*ft_strstr(char *str, char *to_find)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	if (to_find[0] == '\0')

@@ -1,8 +1,11 @@
 {
     "files.associations": {
-        "so_long.h": "c",
-        "libft.h": "c",
-        "structure.h": "c",
-        "lst_collectible.h": "c"
-    }
+		"so_long.h": "c",
+		"libft.h": "c",
+		"structure.h": "c",
+		"lst_collectible.h": "c",
+		"mlx_engine.h": "c",
+		"get_next_line.h": "c",
+		"ft_printf.h": "c"
+	}
 }

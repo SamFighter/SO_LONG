@@ -6,14 +6,15 @@
 /*   By: salabbe <salabbe@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 10:58:12 by salabbe           #+#    #+#             */
-/*   Updated: 2025/03/23 10:55:34 by salabbe          ###   ########.fr       */
+/*   Updated: 2025/03/31 11:41:04 by salabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/lst_collectible.h"
 #include "../../include/structure.h"
 
-t_lst_collectible	*insert_end_lst_collectible(t_lst_collectible **head, t_vec2i coord)
+t_lst_collectible	*insert_end_lst_collectible(t_lst_collectible **head, \
+												t_vec2i coord)
 {
 	t_lst_collectible	*new_node;
 	t_lst_collectible	*tmp_node;
@@ -37,7 +38,8 @@ t_lst_collectible	*insert_end_lst_collectible(t_lst_collectible **head, t_vec2i 
 	return (new_node);
 }
 
-void	delete_node_lst_collectible(t_lst_collectible **head, t_lst_collectible *del_node)
+void	delete_node_lst_collectible(t_lst_collectible **head, \
+									t_lst_collectible *del_node)
 {
 	if (*head == NULL || del_node == NULL)
 		return ;
@@ -61,11 +63,10 @@ void	delete_all_lst_collectible(t_lst_collectible **head)
 
 int	lst_count_collect(t_lst_collectible **lst)
 {
-	int		size;
-	t_lst_collectible *tmp;
+	t_lst_collectible	*tmp;
+	int					size;
 
 	tmp = *lst;
-
 	size = 0;
 	while (tmp)
 	{

@@ -6,7 +6,7 @@
 /*   By: salabbe <salabbe@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 10:31:58 by salabbe           #+#    #+#             */
-/*   Updated: 2025/03/13 10:18:57 by salabbe          ###   ########.fr       */
+/*   Updated: 2025/03/31 12:10:24 by salabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ size_t			ft_strlen(const char *str);
 //\\==============================BONUS===================================\\//
 
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
-void (*del)(void *));
+					void (*del)(void *));
 void			ft_lstdelone(t_list *lst, void (*del)(void *));
 void			ft_lstclear(t_list **lst, void (*del)(void *));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
@@ -76,7 +76,7 @@ t_list			*ft_lstnew(void *content);
 t_list			*ft_lstlast(t_list *lst);
 int				ft_lstsize(t_list *lst);
 
-//\\==============================SF_DLC=====================================\\//
+//\\==============================SF_DLC===================================\\//
 
 int				ft_putnbr(int n);
 int				ft_isspace(char c);
@@ -84,6 +84,6 @@ int				len_int(long int n);
 int				ft_putchar(const char c);
 int				ft_putstr(const char *str);
 int				ft_strcmp(char *s1, char *s2);
-char 			*ft_strstr(char *str, char *to_find);
+char			*ft_strstr(char *str, char *to_find);
 
 #endif
