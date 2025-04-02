@@ -6,7 +6,7 @@
 /*   By: salabbe <salabbe@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 14:33:47 by salabbe           #+#    #+#             */
-/*   Updated: 2025/03/31 11:28:33 by salabbe          ###   ########.fr       */
+/*   Updated: 2025/04/02 15:35:32 by salabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,6 @@ int	main(int ac, char **av)
 	mlx_on_event(map.mlx, map.win, MLX_KEYDOWN, key_handler, &map);
 	mlx_add_loop_hook(map.mlx, render_loop, &map);
 	mlx_loop(map.mlx);
-	free_map(&map);
 	free_engine(&map);
+	free_map(&map);
 }

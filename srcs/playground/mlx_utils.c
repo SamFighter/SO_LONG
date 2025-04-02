@@ -6,7 +6,7 @@
 /*   By: salabbe <salabbe@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 19:33:16 by salabbe           #+#    #+#             */
-/*   Updated: 2025/03/31 11:34:15 by salabbe          ###   ########.fr       */
+/*   Updated: 2025/04/02 15:38:17 by salabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,12 @@ void	free_engine(t_map *map)
 {
 	mlx_destroy_window(map->mlx, map->win);
 	mlx_destroy_image(map->mlx, map->floor);
+	mlx_destroy_image(map->mlx, map->collect->col);
+	mlx_destroy_image(map->mlx, map->exit.i_e);
+	mlx_destroy_image(map->mlx, map->player.player);
+	mlx_destroy_image(map->mlx, map->wall);
 	mlx_destroy_context(map->mlx);
+	exit (0);
 }
 
 void	take_collectible(t_map *map, int x, int y)

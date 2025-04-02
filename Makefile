@@ -6,7 +6,7 @@
 #    By: salabbe <salabbe@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/24 18:41:03 by salabbe           #+#    #+#              #
-#    Updated: 2025/03/23 11:03:23 by salabbe          ###   ########.fr        #
+#    Updated: 2025/04/02 16:26:54 by salabbe          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,11 +66,12 @@ MAKEFLAGS	+=	--silent --no-print-directory
 #																			   #
 # **************************************************************************** #
 
-all:	 $(N_NAME)
+all:	header $(N_NAME)
 
 $(N_NAME): $(LIBFT) $(MLX) $(N_OBJS)
 		$(CC) $(CFLAGS) $(N_OBJS) $(LDFLAGS) -o $(N_NAME) $(MLX_FLAGS) $(MLX)
-		$(info CREATED $(N_NAME))
+		@printf "$(PURPLE)CREATED$(OFF) $(CYAN)$(_BOLD)OBJS$(_RESET) $(CYAN)in /SO_LONG/.build$(OFF)\n"
+		@printf "$(PURPLE)CREATED$(OFF) $(CYAN)$(N_NAME)$(OFF)\n"
 
 $(LIBFT):
 		$(MAKE) -C libft
@@ -81,21 +82,23 @@ $(MLX):
 .build/%.o: %.c
 		mkdir -p $(@D)
 		$(CC) $(CFLAGS) -c $(CPPFLAGS) $< -o $@
-		$(info CREATED $@)
 
 -include $(DEPS)
 
 clean:
 		$(MAKE) -C libft clean
 		$(MAKE) -C MacroLibX clean
+		@printf "$(PURPLE)$(_BOLD)SUPPRESSION$(OFF)$(_RESET) $(CYAN)/SO_LONG/.build$(OFF)\n"
 		rm -rf .build
 
 fclean: clean
 		$(MAKE) -C libft fclean
 		$(MAKE) -C MacroLibX fclean
+		@printf "$(PURPLE)$(_BOLD)ERRADICATION$(OFF)$(_RESET) $(CYAN)$(N_NAME)$(OFF)\n"
 		rm -rf $(N_NAME)
 
 re:
+		@printf "$(RED)$(_BOLD)RE-STARTED FROM SCRATCH$(OFF)$(_RESET)\n"
 		$(MAKE) fclean
 		$(MAKE) all
 
@@ -105,9 +108,30 @@ re:
 #																			   #
 # **************************************************************************** #
 
+
 OFF			:= \033[0m
 RED			:= \033[0;31m
 GREEN		:= \033[0;32m
 YELLOW		:= \033[0;33m
 CYAN		:= \033[0;36m
 PURPLE		:= \033[0;35m
+TPUT = tput -T xterm-256color
+_RESET := $(shell $(TPUT) sgr0)
+_BOLD := $(shell $(TPUT) bold)
+
+header:
+	@printf "%b" "$(GREEN)"
+	@echo
+	@echo
+	@echo "		███████╗ ██████╗         ██╗      ██████╗ ███╗   ██╗ ██████╗ 	    "
+	@echo "		██╔════╝██╔═══██╗        ██║     ██╔═══██╗████╗  ██║██╔════╝ 		"
+	@echo "		███████╗██║   ██║        ██║     ██║   ██║██╔██╗ ██║██║  ███╗       "
+	@echo "		╚════██║██║   ██║        ██║     ██║   ██║██║╚██╗██║██║   ██║       "
+	@echo "		███████║╚██████╔╝███████╗███████╗╚██████╔╝██║ ╚████║╚██████╔╝		"
+	@echo "		╚══════╝ ╚═════╝ ╚══════╝╚══════╝ ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝        "
+	@echo "		    								  by Salabbe                    "
+	@echo
+	@printf "%b" "$(CYAN)CC:	$(YELLOW)$(CC)\n"
+	@printf "%b" "$(CYAN)CFlags:	$(YELLOW)$(CFLAGS)\n"
+	@printf "%b" "$(OFF)"
+	@echo
