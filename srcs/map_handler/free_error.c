@@ -6,7 +6,7 @@
 /*   By: salabbe <salabbe@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 17:03:11 by salabbe           #+#    #+#             */
-/*   Updated: 2025/04/02 15:34:52 by salabbe          ###   ########.fr       */
+/*   Updated: 2025/04/14 17:58:00 by salabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	ft_return(t_map *map, char **cpy, char *msg)
 	ft_printf("%s\n", msg);
 	free_cpy(cpy);
 	free_map(map);
-	exit (0);
+	exit (1);
 }
 
 void	free_map(t_map *map)

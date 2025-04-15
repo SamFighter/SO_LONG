@@ -6,7 +6,7 @@
 #    By: salabbe <salabbe@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/24 18:41:03 by salabbe           #+#    #+#              #
-#    Updated: 2025/04/02 16:26:54 by salabbe          ###   ########.fr        #
+#    Updated: 2025/04/14 17:35:07 by salabbe          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -77,7 +77,7 @@ $(LIBFT):
 		$(MAKE) -C libft
 
 $(MLX):
-		$(MAKE) -C MacroLibX
+		$(MAKE) -C MacroLibX -j
 
 .build/%.o: %.c
 		mkdir -p $(@D)

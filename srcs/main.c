@@ -6,13 +6,13 @@
 /*   By: salabbe <salabbe@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 14:33:47 by salabbe           #+#    #+#             */
-/*   Updated: 2025/04/02 15:35:32 by salabbe          ###   ########.fr       */
+/*   Updated: 2025/04/14 18:28:18 by salabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-static int	check_file_name(char *file_name)
+static int	check_files(char *file_name)
 {
 	int	i;
 
@@ -22,20 +22,21 @@ static int	check_file_name(char *file_name)
 		if (ft_isspace(file_name[i]))
 		{
 			ft_printf("File name incorrect, space not allowed\n");
-			exit (0);
+			exit (1);
 		}
 		if (!ft_strstr(file_name, ".ber"))
 		{
 			ft_printf("The file is not a .ber\n");
-			exit (0);
+			exit (1);
 		}
 		if (ft_strlen(file_name) == 9)
 		{
 			ft_printf("File name incorrect\n");
-			exit (0);
+			exit (1);
 		}
 		i++;
 	}
+	check_all_img();
 	return (1);
 }
 
@@ -48,8 +49,8 @@ int	main(int ac, char **av)
 		ft_printf("Number of argument isn't correct, try with file.ber\n");
 		return (0);
 	}
+	check_files(av[1]);
 	ft_bzero(&map, sizeof(map));
-	check_file_name(av[1]);
 	(&map)->path_name = av[1];
 	check_map(&map);
 	init_mlx_var(&map);

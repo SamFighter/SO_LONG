@@ -6,7 +6,7 @@
 /*   By: salabbe <salabbe@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 10:00:10 by salabbe           #+#    #+#             */
-/*   Updated: 2025/04/02 15:32:05 by salabbe          ###   ########.fr       */
+/*   Updated: 2025/04/14 18:19:15 by salabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,7 @@ void	render_loop(void *param);
 void	free_map(t_map *map);
 void	free_cpy(char **cpy);
 void	ft_return(t_map *map, char **cpy, char *msg);
+void 	check_img(char *str);
+void 	check_all_img();
 
 #endif
