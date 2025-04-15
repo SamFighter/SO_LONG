@@ -6,7 +6,7 @@
 /*   By: salabbe <salabbe@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 10:31:58 by salabbe           #+#    #+#             */
-/*   Updated: 2025/03/31 12:10:24 by salabbe          ###   ########.fr       */
+/*   Updated: 2025/04/15 11:44:03 by salabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,5 +85,6 @@ int				ft_putchar(const char c);
 int				ft_putstr(const char *str);
 int				ft_strcmp(char *s1, char *s2);
 char			*ft_strstr(char *str, char *to_find);
+char			*ft_str_start_str(char *str, char *to_find, int start);
 
 #endif

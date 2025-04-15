@@ -6,7 +6,7 @@
 /*   By: salabbe <salabbe@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 14:33:47 by salabbe           #+#    #+#             */
-/*   Updated: 2025/04/14 18:28:18 by salabbe          ###   ########.fr       */
+/*   Updated: 2025/04/15 11:45:52 by salabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,12 @@ static int	check_files(char *file_name)
 	i = 0;
 	while (file_name[i])
 	{
-		if (ft_isspace(file_name[i]))
-		{
-			ft_printf("File name incorrect, space not allowed\n");
-			exit (1);
-		}
 		if (!ft_strstr(file_name, ".ber"))
 		{
 			ft_printf("The file is not a .ber\n");
 			exit (1);
 		}
-		if (ft_strlen(file_name) == 9)
+		if (!ft_str_start_str(file_name, ".ber", ft_strlen(file_name) - 4))
 		{
 			ft_printf("File name incorrect\n");
 			exit (1);

@@ -6,7 +6,7 @@
 /*   By: salabbe <salabbe@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 18:46:12 by salabbe           #+#    #+#             */
-/*   Updated: 2025/04/14 18:41:42 by salabbe          ###   ########.fr       */
+/*   Updated: 2025/04/15 11:39:07 by salabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,10 @@ void check_img(char *str)
 	int	fd;
 
 	if (str == NULL)
-		ft_return(NULL, NULL, "Error with check_img");
+	{
+		ft_printf("Error with check_img");
+		exit (1);
+	}
 	fd = open(str, O_RDONLY);
 	if (fd == -1)
 	{

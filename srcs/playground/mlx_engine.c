@@ -6,7 +6,7 @@
 /*   By: salabbe <salabbe@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 19:28:54 by salabbe           #+#    #+#             */
-/*   Updated: 2025/04/02 15:28:38 by salabbe          ###   ########.fr       */
+/*   Updated: 2025/04/15 11:58:49 by salabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ static void	put_grid(t_map *map)
 		coord.x = 0;
 		while (map->grid[coord.y][coord.x])
 		{
-			mlx_put_image_to_window(map->mlx, map->win, map->floor, \
+			if (map->grid[coord.y][coord.x] != '1')
+				mlx_put_image_to_window(map->mlx, map->win, map->floor, \
 												coord.x << 5, coord.y << 5);
 			if (map->grid[coord.y][coord.x] == '1')
 				mlx_put_image_to_window(map->mlx, map->win, map->wall, \

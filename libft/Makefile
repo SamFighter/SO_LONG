@@ -6,7 +6,7 @@
 #    By: salabbe <salabbe@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/09 10:51:03 by salabbe           #+#    #+#              #
-#    Updated: 2025/03/13 10:17:54 by salabbe          ###   ########.fr        #
+#    Updated: 2025/04/15 11:51:28 by salabbe          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,6 +69,7 @@ ADD-ONS			:=	SF_DLC/sf_isnewline.c					\
 					SF_DLC/len_int.c						\
 					SF_DLC/ft_strstr.c						\
 					SF_DLC/ft_strcmp.c						\
+					SF_DLC/ft_str_start_str.c				\
 
 FT_PRINTF		:=	FT_PRINTF/ft_printf.c					\
 					FT_PRINTF/ft_sideprintf.c				\
