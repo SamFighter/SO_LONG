@@ -6,7 +6,7 @@
 /*   By: salabbe <salabbe@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 10:00:10 by salabbe           #+#    #+#             */
-/*   Updated: 2025/04/15 12:16:54 by salabbe          ###   ########.fr       */
+/*   Updated: 2025/04/17 18:03:48 by salabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@
 # include "../libft/INCLUDES/get_next_line.h"
 # include "../libft/INCLUDES/ft_printf.h"
 # include "../MacroLibX/includes/mlx.h"
-# include "../MacroLibX/includes/mlx_extended.h"
-# include "../MacroLibX/includes/mlx_profile.h"
 # include "structure.h"
 # include "lst_line.h"
 # include "lst_collectible.h"
@@ -49,7 +47,7 @@ void	render_loop(void *param);
 void	free_map(t_map *map);
 void	free_cpy(char **cpy);
 void	ft_return(t_map *map, char **cpy, char *msg);
-void 	check_img(char *str);
-void 	check_all_img();
+void	check_img(char *str);
+void	check_all_img(void);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: salabbe <salabbe@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 18:46:12 by salabbe           #+#    #+#             */
-/*   Updated: 2025/04/15 12:16:51 by salabbe          ###   ########.fr       */
+/*   Updated: 2025/04/17 18:02:40 by salabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	init_mlx_var(t_map *map)
 	map->win = mlx_new_window(map->mlx, &map->info);
 }
 
-void check_img(char *str)
+void	check_img(char *str)
 {
 	int	fd;
 
@@ -40,7 +40,7 @@ void check_img(char *str)
 	close(fd);
 }
 
-void  check_all_img()
+void	check_all_img(void)
 {
 	check_img("assets/coin.png");
 	check_img("assets/player.png");

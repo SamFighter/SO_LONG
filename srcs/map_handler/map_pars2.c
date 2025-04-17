@@ -6,7 +6,7 @@
 /*   By: salabbe <salabbe@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 17:11:45 by salabbe           #+#    #+#             */
-/*   Updated: 2025/04/17 15:26:25 by salabbe          ###   ########.fr       */
+/*   Updated: 2025/04/17 18:02:04 by salabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,9 @@ void	file_to_lst_line(t_map *map)
 
 void	len_grid(t_map *map)
 {
-	int			linelen;
-	t_lst_line	*tmp;
+	int				linelen;
+	int				col;
+	t_lst_line		*tmp;
 
 	file_to_lst_line(map);
 	tmp = map->lst_line;
@@ -55,7 +56,8 @@ void	len_grid(t_map *map)
 		tmp = tmp->next;
 	}
 	map->column_height = lstsize(map->lst_line);
-	if (map->column_height + map->line_width > 50)
+	col = lst_count_collect(&map->collect);
+	if (map->column_height * map->line_width + col + 2 >= 1024)
 		ft_return(map, NULL, "Map too big");
 }
 

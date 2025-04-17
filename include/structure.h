@@ -6,7 +6,7 @@
 /*   By: salabbe <salabbe@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 11:36:06 by salabbe           #+#    #+#             */
-/*   Updated: 2025/03/31 12:05:27 by salabbe          ###   ########.fr       */
+/*   Updated: 2025/04/17 17:59:26 by salabbe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,7 @@
 
 # include "lst_collectible.h"
 # include "lst_line.h"
-# include "mlx_engine.h"
 # include "../MacroLibX/includes/mlx.h"
-# include "../MacroLibX/includes/mlx_extended.h"
-# include "../MacroLibX/includes/mlx_profile.h"
 # include "vec2i.h"
 
 typedef struct s_lst_collectible	t_lst_collectible;
